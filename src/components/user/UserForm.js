@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import Modal from "../ui/Modal";
 import styles from "./UserForm.module.css";
+import { validate, resetFields } from "../../util/form-util";
 
 const UserForm = (props) => {
   const [isValid, setIsValid] = useState(null);
@@ -10,43 +11,8 @@ const UserForm = (props) => {
   const nameRef = useRef();
   const ageRef = useRef();
 
-  function validate(e) {
-    const targetID = e.target.id;
-    const target = e.target.value;
-    const reg = /[A-Za-z]/g;
-
-    switch (targetID) {
-      case "name":
-        if (reg.test(target)) {
-          setIsValid(true);
-          setModalText(targetID);
-          return;
-        } else {
-          setIsValid(false);
-        }
-        return;
-      case "age":
-        if (!reg.test(target)) {
-          setIsValid(true);
-          setModalText(targetID);
-          return;
-        } else {
-          setIsValid(false);
-        }
-        return;
-      default:
-        return;
-    }
-  }
-
-  function resetFields() {
-    nameRef.current.value = "";
-    ageRef.current.value = "";
-    nameRef.current.focus();
-  }
-
   useEffect(() => {
-    reset === true && resetFields();
+    reset === true && resetFields(nameRef, ageRef);
 
     return () => {
       setReset(false);
@@ -87,7 +53,7 @@ const UserForm = (props) => {
           <input
             id="name"
             type="text"
-            onChange={validate}
+            onChange={(e) => validate(e, setIsValid, setModalText)}
             ref={nameRef}
             required
           />
@@ -97,7 +63,7 @@ const UserForm = (props) => {
           <input
             id="age"
             type="number"
-            onChange={validate}
+            onChange={(e) => validate(e, setIsValid, setModalText)}
             min="18"
             max="66"
             ref={ageRef}
