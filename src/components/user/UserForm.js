@@ -20,10 +20,8 @@ const UserForm = (props) => {
         if (reg.test(target)) {
           setIsValid(true);
           setModalText(targetID);
-          console.log("if:", isValid);
           return;
         } else {
-          console.log("else:", isValid);
           setIsValid(false);
         }
         return;
