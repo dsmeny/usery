@@ -40,7 +40,7 @@ const UserForm = (props) => {
           <button
             onClick={() => {
               setIsValid(true);
-              resetFields();
+              resetFields(nameRef, ageRef);
             }}
           >
             Ok
