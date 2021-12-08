@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+:root {
+  --color-bg: blueviolet;
+  --color-bg-main: aliceblue;
+  --container-widths: 40vw;
+  --border-rounding: 10px;
+  --font-sizing: 1.4rem;
+}

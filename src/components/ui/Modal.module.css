@@ -1,0 +1,7 @@
+.modal {
+  min-width: 23vw;
+  min-height: 30vh;
+  background-color: bisque;
+  position: absolute;
+  z-index: 9999;
+}

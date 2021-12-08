@@ -1,0 +1,9 @@
+.user-container {
+  background-color: var(--color-bg-main);
+  list-style-type: none;
+  line-height: 2rem;
+  width: var(--container-widths);
+  padding: 5px;
+  margin: 1rem 0;
+  border-radius: var(--border-rounding);
+}
